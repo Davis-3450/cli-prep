@@ -1,131 +1,95 @@
-# contain all your deps inside /package
+"""Entry point for cli-prep: a TUI to practise multiple-choice quizzes."""
 
-# app() is your entry point for convenience (we can use any name tho)
+from __future__ import annotations
 
+from pathlib import Path
 
-# -------------
-# Typer (https://typer.tiangolo.com/) | Recommended
-# uv add typer
-# -------------
-# import typer
-# app = typer.Typer()
-# @app.command()
-# def hello():
-#     typer.echo("Hello, World!")
-#
-# if __name__ == "__main__":
-#     app()
-
-# -------------
-# Argparse (https://docs.python.org/3/library/argparse.html)
-# built-in
-# -------------
-# import argparse
-# def app():
-#   parser = argparse.ArgumentParser()
-#   parser.add_argument("--name", type=str, default="World")
-#   args = parser.parse_args()
-#   print(f"Hello, {args.name}!")
-#
-# if __name__ == "__main__":
-#   app()
-
-# -------------
-# Click (https://click.palletsprojects.com/)
-# uv add click
-# -------------
-# import click
-# @click.command()
-# @click.option("--name", default="World")
-# def app(name: str):
-#     click.echo(f"Hello, {name}!")
-#
-# if __name__ == "__main__":
-#     app()
-
-# -------------
-# Fire (https://github.com/google/python-fire)
-# uv add fire
-# -------------
-# import fire
-# def greet(name="World"):
-#     return f"Hello, {name}!"
-#
-# def app():
-#     fire.Fire(greet)
-#
-# if __name__ == "__main__":
-#     app()
-
-# -------------
-# Rich CLI (https://rich.readthedocs.io/en/stable/introduction.html)
-# uv add rich
-# -------------
-# from rich.console import Console
-# import argparse
-# def app():
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument("--name", default="World")
-#     args = parser.parse_args()
-#     console = Console()
-#     console.print(f"[bold green]Hello, {args.name}![/]")
-#
-# if __name__ == "__main__":
-#     app()
-
-# -------------
-# Docopt (http://docopt.org/)
-# uv add docopt
-# -------------
-# """Usage:
-#   app.py [--name=<name>]
-#
-# Options:
-#   -h --help        Show this help.
-#   --name=<name>    Your name [default: World].
-# """
-# from docopt import docopt
-# def app():
-#     args = docopt(__doc__)
-#     print(f"Hello, {args['--name']}!")
-#
-# if __name__ == "__main__":
-#     app()
-
-
-# heres an example with typer:
 import typer
 
+from .models import Quiz, QuizError, discover_quizzes
+from .session import Session
+from .tui import PrepApp
+
 app = typer.Typer(
-    name="uv-cli-template",
-    help="A modern CLI template built with UV and Typer 🚀",
+    name="prep",
+    help="Practise multiple-choice quizzes in a terminal UI.",
     add_completion=False,
+    no_args_is_help=False,
 )
 
 
-@app.command()
-def hello(world: str = "Hello World") -> None:
-    typer.secho("Hello World", fg=typer.colors.RED, bold=True)
-    typer.secho(world, fg=typer.colors.GREEN, bold=True)
-    typer.secho(world, fg=typer.colors.BLUE, bold=True)
-    typer.secho(world, fg=typer.colors.YELLOW, bold=True)
-    typer.secho(world, fg=typer.colors.MAGENTA, bold=True)
-    typer.secho(world, fg=typer.colors.CYAN, bold=True)
-    typer.secho(world, fg=typer.colors.WHITE, bold=True)
-    typer.secho(world, fg=typer.colors.BLACK, bold=True)
+def _default_quizzes_dir() -> Path:
+    """Find a quizzes directory: ./quizzes, else the one bundled in the repo."""
+    cwd = Path.cwd() / "quizzes"
+    if cwd.is_dir():
+        return cwd
+    repo = Path(__file__).resolve().parents[2] / "quizzes"
+    return repo
 
 
 @app.command()
-def version() -> None:
-    """Show version information."""
-    typer.secho("template 0.1.0", fg=typer.colors.BLUE, bold=True)
-    typer.secho("Made with love! :3", fg=typer.colors.CYAN)
+def start(
+    quiz: Path | None = typer.Argument(
+        None, help="Quiz JSON file to open. Omit to pick from a menu."
+    ),
+    quizzes_dir: Path = typer.Option(
+        None,
+        "--quizzes-dir",
+        "-d",
+        help="Directory to scan for quizzes (default: ./quizzes).",
+    ),
+) -> None:
+    """Launch the quiz TUI (default command)."""
+    directory = quizzes_dir or _default_quizzes_dir()
+    PrepApp(quizzes_dir=directory, quiz_path=quiz).run()
+
+
+@app.command("list")
+def list_quizzes(
+    quizzes_dir: Path = typer.Option(
+        None, "--quizzes-dir", "-d", help="Directory to scan for quizzes."
+    ),
+) -> None:
+    """List available quizzes and any saved progress."""
+    directory = quizzes_dir or _default_quizzes_dir()
+    quizzes = discover_quizzes(directory)
+    if not quizzes:
+        typer.secho(f"No quizzes found in {directory}", fg=typer.colors.YELLOW)
+        raise typer.Exit(1)
+    for path in quizzes:
+        session = Session.load(path)
+        if session and session.completed:
+            status = typer.style("completed", fg=typer.colors.GREEN)
+        elif session and session.has_progress:
+            status = typer.style(
+                f"in progress {session.index}/{session.num_questions}",
+                fg=typer.colors.YELLOW,
+            )
+        else:
+            status = typer.style("new", fg=typer.colors.BLUE)
+        typer.echo(f"  {path.stem:<24} {status}")
 
 
 @app.command()
-def config() -> None:
-    """Show configuration information."""
-    typer.secho("Configuration:", fg=typer.colors.YELLOW, bold=True)
+def reset(
+    quiz: Path = typer.Argument(..., help="Quiz JSON file to reset progress for."),
+) -> None:
+    """Delete saved progress for a quiz."""
+    try:
+        loaded = Quiz.load(quiz)
+    except QuizError as exc:
+        typer.secho(str(exc), fg=typer.colors.RED)
+        raise typer.Exit(1)
+    Session.for_quiz(loaded).reset()
+    typer.secho(f"Progress reset for {loaded.title}", fg=typer.colors.GREEN)
+
+
+@app.callback(invoke_without_command=True)
+def _main(ctx: typer.Context) -> None:
+    """Run the TUI menu when called with no subcommand."""
+    if ctx.invoked_subcommand is None:
+        directory = _default_quizzes_dir()
+        PrepApp(quizzes_dir=directory, quiz_path=None).run()
 
 
 if __name__ == "__main__":
