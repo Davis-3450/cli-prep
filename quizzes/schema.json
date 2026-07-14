@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": { "type": "string" },
+          "options": { "type": "array", "items": { "type": "string" } },
+          "answer": { "type": "string" },
+          "explanation": { "type": "string" },
+          "hint": { "type": "string" }
+        },
+        "required": ["answer", "explanation", "hint", "options", "question"]
+      }
+    }
+  },
+  "required": ["description", "questions", "title"]
+}
