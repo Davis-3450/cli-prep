@@ -1,4 +1,5 @@
 {
+  "$schema": "./schema.json",
   "title": "Geography Quiz",
   "description": "Test your knowledge of world geography.",
   "questions": [
