@@ -1,0 +1,22 @@
+[project]
+name = "uv-cli-template"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["typer>=0.16.1"]
+
+[project.scripts]
+uv-cli-template = "package.main:app"
+
+[dependency-groups]
+dev = ["pytest", "ruff", "pyrefly", "pre-commit"]
+
+
+[tool.pyrefly]
+project-includes = ["**/*"]
+project-excludes = ['**/*venv/**\*']
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
