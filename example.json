@@ -1,0 +1,9 @@
+[
+  {
+    "question": "Q: What is the capital of France?",
+    "options": ["A: Paris", "B: London", "C: Berlin", "D: Madrid"],
+    "answer": "A: Paris",
+    "explanation": "The capital of France is Paris, which is known for its art, fashion, and culture.",
+    "hint": "It's also called the 'City of Light'."
+  }
+]
