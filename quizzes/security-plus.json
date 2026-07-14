@@ -1,0 +1,966 @@
+{
+  "$schema": "./schema.json",
+  "title": "CompTIA Security+ (SY0-701) Practice Exam",
+  "description": "A 90-question practice exam modeled after the CompTIA Security+ SY0-701 objectives, covering General Security Concepts, Threats/Vulnerabilities/Mitigations, Security Architecture, Security Operations, and Security Program Management & Oversight.",
+  "questions": [
+    {
+      "question": "Q: Which of the CIA triad principles is primarily concerned with ensuring that data has not been altered in an unauthorized manner?",
+      "options": ["A: Confidentiality", "B: Integrity", "C: Availability", "D: Authentication"],
+      "answer": "B: Integrity",
+      "explanation": "Integrity ensures that data remains accurate and unaltered by unauthorized parties. Hashing and digital signatures are common controls used to verify integrity.",
+      "hint": "Think about which control detects tampering with a file."
+    },
+    {
+      "question": "Q: A security control that is implemented after an incident has occurred to reduce its impact is BEST described as which control type?",
+      "options": ["A: Preventive", "B: Detective", "C: Corrective", "D: Deterrent"],
+      "answer": "C: Corrective",
+      "explanation": "Corrective controls act after an event to restore systems and limit damage, such as restoring from backup or applying a patch. Preventive controls stop events, detective controls identify them, and deterrent controls discourage them.",
+      "hint": "It happens after the fact to fix things."
+    },
+    {
+      "question": "Q: Which access control model assigns permissions based on the sensitivity labels of objects and the clearance of subjects?",
+      "options": ["A: Discretionary Access Control (DAC)", "B: Role-Based Access Control (RBAC)", "C: Mandatory Access Control (MAC)", "D: Attribute-Based Access Control (ABAC)"],
+      "answer": "C: Mandatory Access Control (MAC)",
+      "explanation": "MAC uses labels (e.g., Top Secret, Secret) and clearances enforced by the system, not the resource owner. It is common in military and government environments.",
+      "hint": "This model is common in military and classified environments."
+    },
+    {
+      "question": "Q: An organization wants to ensure a sender cannot later deny having sent a message. Which security concept does this provide?",
+      "options": ["A: Confidentiality", "B: Non-repudiation", "C: Availability", "D: Authorization"],
+      "answer": "B: Non-repudiation",
+      "explanation": "Non-repudiation prevents a party from denying an action. Digital signatures provide non-repudiation because only the sender holds the private key used to sign.",
+      "hint": "A digital signature provides this."
+    },
+    {
+      "question": "Q: Which of the following BEST describes the purpose of a honeypot?",
+      "options": ["A: To encrypt data at rest", "B: To lure and observe attackers away from production systems", "C: To load-balance web traffic", "D: To provide redundant power"],
+      "answer": "B: To lure and observe attackers away from production systems",
+      "explanation": "A honeypot is a decoy system designed to attract attackers so their techniques can be studied and to divert them from real assets. A honeynet is a network of honeypots.",
+      "hint": "It is a decoy meant to attract attackers."
+    },
+    {
+      "question": "Q: A company uses a device to keep time-based one-time passwords (TOTP) generated for logins. This is an example of which authentication factor?",
+      "options": ["A: Something you know", "B: Something you have", "C: Something you are", "D: Somewhere you are"],
+      "answer": "B: Something you have",
+      "explanation": "A hardware or software token that generates one-time codes is a possession factor — 'something you have.' Combining it with a password creates multifactor authentication.",
+      "hint": "You physically possess the token."
+    },
+    {
+      "question": "Q: Which encryption approach uses the SAME key to encrypt and decrypt data?",
+      "options": ["A: Asymmetric encryption", "B: Symmetric encryption", "C: Hashing", "D: Steganography"],
+      "answer": "B: Symmetric encryption",
+      "explanation": "Symmetric encryption (e.g., AES) uses a single shared secret key for both encryption and decryption, making it fast but requiring secure key distribution.",
+      "hint": "One shared secret key does both operations."
+    },
+    {
+      "question": "Q: Which of the following is an example of a technical (logical) security control?",
+      "options": ["A: A security awareness training program", "B: A firewall access control list", "C: A fenced perimeter", "D: A background check policy"],
+      "answer": "B: A firewall access control list",
+      "explanation": "Technical controls are implemented through technology, such as firewalls, encryption, and access control lists. Training and policies are managerial/administrative, and fences are physical.",
+      "hint": "It is enforced through hardware or software."
+    },
+    {
+      "question": "Q: An attacker sends emails that appear to come from a company's CEO to trick finance staff into wiring funds. What type of attack is this?",
+      "options": ["A: Whaling", "B: Vishing", "C: Smishing", "D: Shoulder surfing"],
+      "answer": "A: Whaling",
+      "explanation": "Whaling is a phishing attack that targets high-profile individuals or impersonates executives. Vishing uses voice, smishing uses SMS, and shoulder surfing is observing directly.",
+      "hint": "It targets the 'big fish' executives."
+    },
+    {
+      "question": "Q: Which document is a formal agreement between two parties that defines the responsibilities and expectations but is NOT legally binding?",
+      "options": ["A: SLA", "B: MOU", "C: BPA", "D: NDA"],
+      "answer": "B: MOU",
+      "explanation": "A Memorandum of Understanding (MOU) documents intentions and expectations between parties and is generally not legally binding. An SLA defines service levels, a BPA governs a business partnership, and an NDA protects confidentiality.",
+      "hint": "It expresses mutual intentions but lacks legal enforceability."
+    },
+    {
+      "question": "Q: A security analyst notices outbound traffic to a known malicious IP occurring every 60 seconds from an internal host. This behavior MOST likely indicates which of the following?",
+      "options": ["A: A misconfigured NTP server", "B: Command-and-control (C2) beaconing", "C: Normal software updates", "D: A DHCP renewal"],
+      "answer": "B: Command-and-control (C2) beaconing",
+      "explanation": "Regular, periodic outbound connections to a malicious host are characteristic of C2 beaconing, where malware checks in with its controller for instructions.",
+      "hint": "Malware 'phones home' on a regular interval."
+    },
+    {
+      "question": "Q: Which of the following BEST describes the principle of least privilege?",
+      "options": ["A: Users should have administrative rights for convenience", "B: Users should be granted only the access necessary to perform their job", "C: All users should share a single account", "D: Access should be based solely on seniority"],
+      "answer": "B: Users should be granted only the access necessary to perform their job",
+      "explanation": "Least privilege limits users, processes, and systems to the minimum access required, reducing the attack surface and potential damage from compromise.",
+      "hint": "Give only what is needed, nothing more."
+    },
+    {
+      "question": "Q: A penetration tester is given no prior knowledge of the target environment. Which type of test is being performed?",
+      "options": ["A: White box", "B: Gray box", "C: Black box", "D: Blue box"],
+      "answer": "C: Black box",
+      "explanation": "In a black box test, the tester has no internal knowledge, simulating an external attacker. White box provides full information, and gray box provides partial information.",
+      "hint": "The tester works in the dark, like an outsider."
+    },
+    {
+      "question": "Q: Which cryptographic concept ensures that even if a session key is compromised, past session keys remain secure?",
+      "options": ["A: Key stretching", "B: Perfect forward secrecy", "C: Key escrow", "D: Salting"],
+      "answer": "B: Perfect forward secrecy",
+      "explanation": "Perfect forward secrecy (PFS) generates unique ephemeral keys per session, so compromising one key does not expose previous or future sessions.",
+      "hint": "Each session uses a unique ephemeral key."
+    },
+    {
+      "question": "Q: An organization must comply with a regulation requiring cardholder data protection. Which framework applies?",
+      "options": ["A: HIPAA", "B: PCI DSS", "C: SOX", "D: FERPA"],
+      "answer": "B: PCI DSS",
+      "explanation": "The Payment Card Industry Data Security Standard (PCI DSS) governs the protection of cardholder data. HIPAA covers health data, SOX covers financial reporting, and FERPA covers education records.",
+      "hint": "It is specific to credit card data."
+    },
+    {
+      "question": "Q: Which type of malware disguises itself as legitimate software to trick users into installing it?",
+      "options": ["A: Worm", "B: Trojan", "C: Rootkit", "D: Logic bomb"],
+      "answer": "B: Trojan",
+      "explanation": "A Trojan appears to be legitimate but carries a malicious payload. Unlike a worm, it does not self-replicate; it relies on the user to run it.",
+      "hint": "Named after a famous Greek deception."
+    },
+    {
+      "question": "Q: A company implements salting for stored passwords. What is the PRIMARY purpose of a salt?",
+      "options": ["A: To encrypt the password with AES", "B: To add unique random data so identical passwords hash differently", "C: To compress the password", "D: To speed up hash computation"],
+      "answer": "B: To add unique random data so identical passwords hash differently",
+      "explanation": "A salt is random data added before hashing so that identical passwords produce different hashes, defeating precomputed rainbow table attacks.",
+      "hint": "It defeats rainbow tables."
+    },
+    {
+      "question": "Q: Which of the following is a characteristic of a zero-day vulnerability?",
+      "options": ["A: It has a vendor patch available", "B: It is unknown to the vendor and has no available patch", "C: It only affects legacy systems", "D: It is always a physical security flaw"],
+      "answer": "B: It is unknown to the vendor and has no available patch",
+      "explanation": "A zero-day vulnerability is unknown to the vendor, meaning no patch exists and defenders have 'zero days' to prepare before it can be exploited.",
+      "hint": "The vendor has had zero days to fix it."
+    },
+    {
+      "question": "Q: Which technology allows multiple operating systems to run on a single physical host by abstracting hardware resources?",
+      "options": ["A: Containerization", "B: Virtualization (hypervisor)", "C: Load balancing", "D: Clustering"],
+      "answer": "B: Virtualization (hypervisor)",
+      "explanation": "A hypervisor abstracts physical hardware to run multiple virtual machines, each with its own OS. Containers share the host OS kernel instead.",
+      "hint": "A hypervisor makes this possible."
+    },
+    {
+      "question": "Q: A security team wants to detect malicious activity by comparing behavior against a known-good baseline. Which detection method is this?",
+      "options": ["A: Signature-based detection", "B: Anomaly-based detection", "C: Rule-based detection", "D: Heuristic sandboxing"],
+      "answer": "B: Anomaly-based detection",
+      "explanation": "Anomaly-based detection establishes a baseline of normal behavior and flags deviations. Signature-based detection matches known patterns of malicious activity.",
+      "hint": "It flags deviations from 'normal.'"
+    },
+    {
+      "question": "Q: Which of the following is the BEST example of multifactor authentication?",
+      "options": ["A: A password and a PIN", "B: A fingerprint and a retina scan", "C: A password and a smart card", "D: Two different passwords"],
+      "answer": "C: A password and a smart card",
+      "explanation": "MFA requires factors from different categories. A password (something you know) plus a smart card (something you have) qualifies. Two knowledge factors or two biometrics do not.",
+      "hint": "The factors must be from different categories."
+    },
+    {
+      "question": "Q: Which attack manipulates a database query by inserting malicious input into an application's data fields?",
+      "options": ["A: Cross-site scripting", "B: SQL injection", "C: Buffer overflow", "D: CSRF"],
+      "answer": "B: SQL injection",
+      "explanation": "SQL injection inserts crafted SQL into input fields to manipulate database queries, potentially exposing or altering data. Input validation and parameterized queries mitigate it.",
+      "hint": "The attack targets the backend database."
+    },
+    {
+      "question": "Q: A security architect wants to segment the network so that a compromised IoT device cannot reach critical servers. Which control BEST accomplishes this?",
+      "options": ["A: A single flat VLAN", "B: Network segmentation with VLANs and ACLs", "C: Disabling logging", "D: Increasing DHCP lease time"],
+      "answer": "B: Network segmentation with VLANs and ACLs",
+      "explanation": "Segmentation isolates devices into separate zones so lateral movement is restricted. VLANs plus ACLs enforce boundaries between IoT and critical systems.",
+      "hint": "You want to isolate device groups from each other."
+    },
+    {
+      "question": "Q: Which of the following describes a supply chain attack?",
+      "options": ["A: Flooding a server with traffic", "B: Compromising a trusted third-party vendor to reach the target", "C: Guessing a user's password", "D: Intercepting wireless traffic"],
+      "answer": "B: Compromising a trusted third-party vendor to reach the target",
+      "explanation": "A supply chain attack compromises a trusted supplier, software update, or hardware component to infiltrate downstream victims — as seen in software-update poisoning incidents.",
+      "hint": "The attacker enters through a trusted vendor."
+    },
+    {
+      "question": "Q: What is the PRIMARY purpose of a Data Loss Prevention (DLP) solution?",
+      "options": ["A: To back up data automatically", "B: To detect and prevent unauthorized exfiltration of sensitive data", "C: To encrypt hard drives", "D: To load balance traffic"],
+      "answer": "B: To detect and prevent unauthorized exfiltration of sensitive data",
+      "explanation": "DLP monitors data in use, in motion, and at rest to prevent sensitive information from leaving the organization without authorization.",
+      "hint": "It stops sensitive data from leaving the org."
+    },
+    {
+      "question": "Q: An administrator disables unused ports and services on a server before deployment. This process is BEST described as which of the following?",
+      "options": ["A: Sandboxing", "B: Hardening", "C: Fuzzing", "D: Tokenization"],
+      "answer": "B: Hardening",
+      "explanation": "System hardening reduces the attack surface by disabling unnecessary services, closing ports, removing default accounts, and applying secure configurations.",
+      "hint": "Reducing the attack surface of a system."
+    },
+    {
+      "question": "Q: Which of the following BEST describes the difference between RTO and RPO?",
+      "options": ["A: RTO is the acceptable data loss; RPO is the recovery time", "B: RTO is the target recovery time; RPO is the acceptable amount of data loss", "C: They are identical metrics", "D: RTO measures uptime; RPO measures downtime"],
+      "answer": "B: RTO is the target recovery time; RPO is the acceptable amount of data loss",
+      "explanation": "Recovery Time Objective (RTO) is how quickly systems must be restored. Recovery Point Objective (RPO) is how much data loss (measured in time) is tolerable.",
+      "hint": "One measures time to recover; the other measures data loss."
+    },
+    {
+      "question": "Q: A user reports their screen displays a message demanding payment to unlock their encrypted files. Which malware is responsible?",
+      "options": ["A: Spyware", "B: Ransomware", "C: Adware", "D: Keylogger"],
+      "answer": "B: Ransomware",
+      "explanation": "Ransomware encrypts a victim's files and demands payment for the decryption key. Reliable, tested offline backups are the strongest defense.",
+      "hint": "It holds your files hostage for money."
+    },
+    {
+      "question": "Q: Which protocol provides secure, encrypted remote command-line access to a device?",
+      "options": ["A: Telnet", "B: SSH", "C: FTP", "D: SNMPv1"],
+      "answer": "B: SSH",
+      "explanation": "Secure Shell (SSH) encrypts remote administrative sessions on port 22. Telnet and FTP transmit data in cleartext and should be avoided.",
+      "hint": "It replaces Telnet with encryption."
+    },
+    {
+      "question": "Q: What is the primary function of a Certificate Authority (CA) in a PKI?",
+      "options": ["A: To generate symmetric keys for all users", "B: To issue and digitally sign certificates that bind identities to public keys", "C: To store user passwords", "D: To perform intrusion detection"],
+      "answer": "B: To issue and digitally sign certificates that bind identities to public keys",
+      "explanation": "A CA validates identities and issues digitally signed certificates that associate a public key with an entity, forming the trust foundation of PKI.",
+      "hint": "It vouches for the ownership of public keys."
+    },
+    {
+      "question": "Q: An attacker positions themselves between two communicating parties to intercept and alter traffic. What is this attack called?",
+      "options": ["A: Replay attack", "B: On-path (man-in-the-middle) attack", "C: Downgrade attack", "D: Birthday attack"],
+      "answer": "B: On-path (man-in-the-middle) attack",
+      "explanation": "An on-path attack (formerly man-in-the-middle) intercepts communications between two parties, allowing eavesdropping or manipulation. Encryption and certificate validation mitigate it.",
+      "hint": "The attacker sits in the middle of the conversation."
+    },
+    {
+      "question": "Q: Which of the following is an example of a compensating control?",
+      "options": ["A: The primary control that fully meets a requirement", "B: An alternative control used when the primary control cannot be implemented", "C: A control that has been decommissioned", "D: A control applied only to physical assets"],
+      "answer": "B: An alternative control used when the primary control cannot be implemented",
+      "explanation": "A compensating control provides an alternative means of meeting a security requirement when the standard control is not feasible, offering comparable protection.",
+      "hint": "It substitutes when the ideal control isn't possible."
+    },
+    {
+      "question": "Q: Which wireless security protocol offers the STRONGEST protection for a modern enterprise network?",
+      "options": ["A: WEP", "B: WPA", "C: WPA2-PSK", "D: WPA3-Enterprise"],
+      "answer": "D: WPA3-Enterprise",
+      "explanation": "WPA3-Enterprise provides the strongest protection with improved encryption (SAE) and 192-bit security options. WEP and WPA are deprecated and insecure.",
+      "hint": "The newest standard with enterprise authentication."
+    },
+    {
+      "question": "Q: A security policy requires that no single person can complete a critical transaction alone. Which principle does this enforce?",
+      "options": ["A: Least privilege", "B: Separation of duties", "C: Job rotation", "D: Mandatory vacation"],
+      "answer": "B: Separation of duties",
+      "explanation": "Separation of duties divides critical tasks among multiple people to prevent fraud and error, ensuring no single individual has end-to-end control.",
+      "hint": "It requires more than one person to complete a task."
+    },
+    {
+      "question": "Q: Which of the following hashing algorithms is considered cryptographically broken and should NOT be used for integrity?",
+      "options": ["A: SHA-256", "B: SHA-3", "C: MD5", "D: SHA-512"],
+      "answer": "C: MD5",
+      "explanation": "MD5 is vulnerable to collision attacks and is no longer suitable for security purposes. SHA-256, SHA-512, and SHA-3 remain acceptable.",
+      "hint": "This older 128-bit algorithm suffers from collisions."
+    },
+    {
+      "question": "Q: An organization uses a cloud provider and is responsible only for its data and access management, while the provider manages everything else. Which cloud model is this MOST likely?",
+      "options": ["A: IaaS", "B: PaaS", "C: SaaS", "D: On-premises"],
+      "answer": "C: SaaS",
+      "explanation": "In Software as a Service (SaaS), the provider manages the application and infrastructure; the customer manages only data and user access. The shared responsibility model shifts more to the provider as you move from IaaS to SaaS.",
+      "hint": "The customer manages the least in this model."
+    },
+    {
+      "question": "Q: Which type of testing sends malformed or random data to an application to discover vulnerabilities?",
+      "options": ["A: Fuzzing", "B: Regression testing", "C: Unit testing", "D: Load testing"],
+      "answer": "A: Fuzzing",
+      "explanation": "Fuzzing injects malformed, unexpected, or random inputs into an application to find crashes and security flaws such as buffer overflows.",
+      "hint": "It throws random garbage input at the program."
+    },
+    {
+      "question": "Q: A company wants to verify a downloaded file matches the vendor's original. Which technique should they use?",
+      "options": ["A: Compare file sizes only", "B: Compare cryptographic hash values", "C: Rename the file", "D: Scan with antivirus only"],
+      "answer": "B: Compare cryptographic hash values",
+      "explanation": "Comparing the file's computed hash to the vendor-published hash verifies integrity — any change to the file produces a different hash value.",
+      "hint": "A checksum comparison confirms the file is unchanged."
+    },
+    {
+      "question": "Q: Which of the following is the BEST description of a false positive in security monitoring?",
+      "options": ["A: A real attack that goes undetected", "B: An alert triggered by benign activity mistaken as malicious", "C: A blocked legitimate user", "D: A successful login"],
+      "answer": "B: An alert triggered by benign activity mistaken as malicious",
+      "explanation": "A false positive occurs when a system flags normal activity as a threat. A false negative is a real threat that goes undetected.",
+      "hint": "The alarm fired, but there was no real threat."
+    },
+    {
+      "question": "Q: Which authentication protocol uses tickets and a Key Distribution Center (KDC) for single sign-on in Windows domains?",
+      "options": ["A: RADIUS", "B: Kerberos", "C: TACACS+", "D: LDAP"],
+      "answer": "B: Kerberos",
+      "explanation": "Kerberos uses a trusted KDC to issue time-stamped tickets, enabling secure single sign-on. It is the default authentication protocol in Active Directory.",
+      "hint": "It relies on tickets and a trusted third party."
+    },
+    {
+      "question": "Q: Which of the following is a PRIMARY benefit of implementing a SIEM?",
+      "options": ["A: It encrypts all network traffic", "B: It centralizes log collection, correlation, and alerting", "C: It replaces the need for firewalls", "D: It provides physical access control"],
+      "answer": "B: It centralizes log collection, correlation, and alerting",
+      "explanation": "A Security Information and Event Management (SIEM) system aggregates logs from many sources, correlates events, and generates alerts to support detection and investigation.",
+      "hint": "It aggregates and correlates logs from many sources."
+    },
+    {
+      "question": "Q: An attacker floods a target with traffic from many compromised devices to make a service unavailable. What is this attack?",
+      "options": ["A: Phishing", "B: DDoS", "C: Privilege escalation", "D: Pharming"],
+      "answer": "B: DDoS",
+      "explanation": "A Distributed Denial-of-Service (DDoS) attack uses many compromised systems (a botnet) to overwhelm a target, degrading or denying availability.",
+      "hint": "It comes from many sources at once to overwhelm a service."
+    },
+    {
+      "question": "Q: Which document outlines the steps an organization takes to resume critical business functions after a disruption?",
+      "options": ["A: Acceptable Use Policy", "B: Business Continuity Plan", "C: Change Management Policy", "D: Data Retention Policy"],
+      "answer": "B: Business Continuity Plan",
+      "explanation": "A Business Continuity Plan (BCP) describes how an organization continues critical operations during and after a disruption. A Disaster Recovery Plan focuses specifically on restoring IT systems.",
+      "hint": "It keeps the business running during a disruption."
+    },
+    {
+      "question": "Q: A developer stores an API key directly in publicly accessible source code. Which vulnerability does this represent?",
+      "options": ["A: Improper error handling", "B: Hard-coded/embedded credentials", "C: Race condition", "D: Buffer overflow"],
+      "answer": "B: Hard-coded/embedded credentials",
+      "explanation": "Embedding secrets like API keys in code exposes them to anyone with access to the repository. Secrets should be stored in secure vaults or environment variables.",
+      "hint": "The secret is baked directly into the code."
+    },
+    {
+      "question": "Q: Which of the following BEST describes tokenization?",
+      "options": ["A: Replacing sensitive data with a non-sensitive substitute value", "B: Encrypting data with a public key", "C: Compressing data to save space", "D: Hashing data with a salt"],
+      "answer": "A: Replacing sensitive data with a non-sensitive substitute value",
+      "explanation": "Tokenization substitutes sensitive data (like a card number) with a non-sensitive token, with the mapping stored securely elsewhere. Unlike encryption, tokens have no mathematical relationship to the original.",
+      "hint": "The real value is swapped for a meaningless placeholder."
+    },
+    {
+      "question": "Q: An organization requires users to change passwords and reviews their accounts when they change roles. This process is part of which of the following?",
+      "options": ["A: Identity and access management lifecycle", "B: Penetration testing", "C: Incident response", "D: Threat hunting"],
+      "answer": "A: Identity and access management lifecycle",
+      "explanation": "The IAM lifecycle covers provisioning, ongoing management, role changes, and de-provisioning of identities to ensure access remains appropriate over time.",
+      "hint": "It governs accounts from creation to deletion."
+    },
+    {
+      "question": "Q: Which type of site provides a fully equipped, operational duplicate environment ready for immediate failover?",
+      "options": ["A: Cold site", "B: Warm site", "C: Hot site", "D: Mobile site"],
+      "answer": "C: Hot site",
+      "explanation": "A hot site is fully operational with hardware, data, and connectivity ready for near-immediate failover. Cold sites are empty space, and warm sites are partially equipped.",
+      "hint": "It is ready to take over almost instantly."
+    },
+    {
+      "question": "Q: Which of the following is a key characteristic of the Zero Trust security model?",
+      "options": ["A: Trust all internal traffic by default", "B: Never trust, always verify every request regardless of location", "C: Rely solely on perimeter firewalls", "D: Grant permanent access after first login"],
+      "answer": "B: Never trust, always verify every request regardless of location",
+      "explanation": "Zero Trust assumes no implicit trust based on network location and continuously verifies identity, device posture, and authorization for each request.",
+      "hint": "Its motto is 'never trust, always verify.'"
+    },
+    {
+      "question": "Q: A user receives a text message with a malicious link claiming their bank account is locked. What type of attack is this?",
+      "options": ["A: Vishing", "B: Smishing", "C: Whaling", "D: Pharming"],
+      "answer": "B: Smishing",
+      "explanation": "Smishing is phishing conducted via SMS text messages. Vishing uses voice calls, and whaling targets executives.",
+      "hint": "The 'SM' stands for SMS."
+    },
+    {
+      "question": "Q: Which of the following is used to securely store and manage cryptographic keys in tamper-resistant hardware?",
+      "options": ["A: TPM only", "B: Hardware Security Module (HSM)", "C: RAID controller", "D: Load balancer"],
+      "answer": "B: Hardware Security Module (HSM)",
+      "explanation": "An HSM is a dedicated, tamper-resistant hardware device for generating, storing, and managing cryptographic keys at scale. A TPM serves a similar purpose but is typically bound to a single host.",
+      "hint": "A dedicated appliance for enterprise key management."
+    },
+    {
+      "question": "Q: An IDS that only alerts on suspicious traffic but does not block it is operating in which mode?",
+      "options": ["A: Inline/active", "B: Passive/detection-only", "C: Preventive", "D: Fail-closed"],
+      "answer": "B: Passive/detection-only",
+      "explanation": "An Intrusion Detection System (IDS) monitors and alerts but does not block traffic. An Intrusion Prevention System (IPS) sits inline and can actively block.",
+      "hint": "It watches and warns but does not stop traffic."
+    },
+    {
+      "question": "Q: Which of the following describes privilege escalation?",
+      "options": ["A: Sharing credentials with a coworker", "B: Gaining higher-level access than originally granted", "C: Logging out of an account", "D: Encrypting a file"],
+      "answer": "B: Gaining higher-level access than originally granted",
+      "explanation": "Privilege escalation is when an attacker or user obtains elevated rights beyond what was authorized, either vertically (higher role) or horizontally (another user's access).",
+      "hint": "Going from a regular user to admin without authorization."
+    },
+    {
+      "question": "Q: A company implements geofencing so that certain data is only accessible within corporate premises. Which authentication attribute does this use?",
+      "options": ["A: Something you know", "B: Somewhere you are", "C: Something you have", "D: Something you are"],
+      "answer": "B: Somewhere you are",
+      "explanation": "Geofencing and geolocation-based restrictions use the 'somewhere you are' attribute, granting or denying access based on physical location.",
+      "hint": "Access depends on physical location."
+    },
+    {
+      "question": "Q: Which of the following BEST mitigates the risk of cross-site scripting (XSS)?",
+      "options": ["A: Disabling logging", "B: Input validation and output encoding", "C: Using a longer DHCP lease", "D: Increasing password length"],
+      "answer": "B: Input validation and output encoding",
+      "explanation": "XSS is mitigated by validating and sanitizing input and encoding output so injected scripts are not executed by the browser.",
+      "hint": "Sanitize what users submit and what the page renders."
+    },
+    {
+      "question": "Q: What is the PRIMARY goal of change management in security operations?",
+      "options": ["A: To prevent all changes to systems", "B: To ensure changes are documented, reviewed, and approved to avoid unintended impact", "C: To eliminate the need for backups", "D: To bypass testing for speed"],
+      "answer": "B: To ensure changes are documented, reviewed, and approved to avoid unintended impact",
+      "explanation": "Change management provides a structured process for reviewing, approving, testing, and documenting changes to minimize disruption and security risks.",
+      "hint": "Controlled, documented modifications reduce surprises."
+    },
+    {
+      "question": "Q: Which of the following is an example of data in transit?",
+      "options": ["A: A file saved on a hard drive", "B: An email being sent across the internet", "C: A document open in memory being edited", "D: A backup tape in storage"],
+      "answer": "B: An email being sent across the internet",
+      "explanation": "Data in transit is data actively moving across a network. Data at rest is stored data, and data in use is data being processed in memory.",
+      "hint": "The data is actively moving over the network."
+    },
+    {
+      "question": "Q: A security analyst wants to prevent USB drives from being used to exfiltrate data on company endpoints. Which control is MOST appropriate?",
+      "options": ["A: A web application firewall", "B: Endpoint DLP with removable media controls", "C: A load balancer", "D: A VPN concentrator"],
+      "answer": "B: Endpoint DLP with removable media controls",
+      "explanation": "Endpoint DLP with device/removable-media policies can block or monitor USB usage to prevent unauthorized data transfer to external drives.",
+      "hint": "You need to control removable media on endpoints."
+    },
+    {
+      "question": "Q: Which of the following describes the concept of 'defense in depth'?",
+      "options": ["A: Relying on a single strong control", "B: Layering multiple overlapping controls so no single failure is catastrophic", "C: Removing all internal controls", "D: Trusting perimeter security alone"],
+      "answer": "B: Layering multiple overlapping controls so no single failure is catastrophic",
+      "explanation": "Defense in depth uses multiple layers of overlapping controls (physical, technical, administrative) so that if one layer fails, others still provide protection.",
+      "hint": "Think multiple layers, like an onion."
+    },
+    {
+      "question": "Q: An attacker intercepts and re-sends a valid authentication request to gain access. What type of attack is this?",
+      "options": ["A: Replay attack", "B: Dictionary attack", "C: SQL injection", "D: Rainbow table attack"],
+      "answer": "A: Replay attack",
+      "explanation": "A replay attack captures valid data (such as an authentication token) and retransmits it to impersonate a user. Timestamps, nonces, and session tokens mitigate it.",
+      "hint": "Capture and re-send a legitimate transmission."
+    },
+    {
+      "question": "Q: Which of the following is the correct order of volatility, from MOST to LEAST volatile, when collecting digital evidence?",
+      "options": ["A: Disk, RAM, CPU cache, backups", "B: CPU cache/registers, RAM, disk, backups", "C: Backups, disk, RAM, CPU cache", "D: RAM, backups, disk, CPU cache"],
+      "answer": "B: CPU cache/registers, RAM, disk, backups",
+      "explanation": "The order of volatility guides forensic collection from most volatile (CPU cache and registers, then RAM) to least volatile (disk, then archival backups) to preserve fragile evidence first.",
+      "hint": "Collect the data that disappears fastest first."
+    },
+    {
+      "question": "Q: Which control provides accountability by recording which user performed which action?",
+      "options": ["A: Encryption", "B: Auditing/logging", "C: Load balancing", "D: Compression"],
+      "answer": "B: Auditing/logging",
+      "explanation": "Audit logs record user actions and system events, providing accountability and supporting investigations. This is the 'accounting' element of AAA.",
+      "hint": "It creates a record of who did what."
+    },
+    {
+      "question": "Q: A company classifies data as Public, Internal, Confidential, and Restricted. What is the PRIMARY benefit of data classification?",
+      "options": ["A: It increases network speed", "B: It ensures appropriate handling and protection based on sensitivity", "C: It eliminates the need for encryption", "D: It reduces the number of employees"],
+      "answer": "B: It ensures appropriate handling and protection based on sensitivity",
+      "explanation": "Data classification assigns sensitivity levels so that protection, access, and handling requirements match the value and risk of the data.",
+      "hint": "It matches protection to the sensitivity of the data."
+    },
+    {
+      "question": "Q: Which of the following is a benefit of using containerization over traditional virtual machines?",
+      "options": ["A: Each container runs a full separate OS", "B: Containers are lightweight and share the host OS kernel", "C: Containers require more resources than VMs", "D: Containers cannot be orchestrated"],
+      "answer": "B: Containers are lightweight and share the host OS kernel",
+      "explanation": "Containers package an application and its dependencies but share the host kernel, making them lighter and faster to start than full VMs.",
+      "hint": "They share the host kernel instead of running a full OS."
+    },
+    {
+      "question": "Q: An organization wants to prove the authenticity and integrity of a software update. Which mechanism should be used?",
+      "options": ["A: Code signing with a digital certificate", "B: Obfuscation", "C: Compression", "D: A CAPTCHA"],
+      "answer": "A: Code signing with a digital certificate",
+      "explanation": "Code signing uses the developer's private key to digitally sign software, letting recipients verify the publisher's identity and that the code has not been altered.",
+      "hint": "A digital signature on the executable proves its source."
+    },
+    {
+      "question": "Q: Which of the following BEST describes threat intelligence?",
+      "options": ["A: Random guessing about attacks", "B: Evidence-based knowledge about threats used to inform defensive decisions", "C: A type of firewall", "D: An encryption algorithm"],
+      "answer": "B: Evidence-based knowledge about threats used to inform defensive decisions",
+      "explanation": "Threat intelligence is curated, evidence-based information about adversaries, their tactics, and indicators of compromise, used to improve defenses proactively.",
+      "hint": "Curated knowledge about adversaries and their methods."
+    },
+    {
+      "question": "Q: A security team blocks known malicious file hashes from executing on endpoints. This is an example of which technique?",
+      "options": ["A: Allow listing", "B: Deny (block) listing", "C: Sandboxing", "D: Fuzzing"],
+      "answer": "B: Deny (block) listing",
+      "explanation": "Deny listing (blocklisting) prevents known-bad items (hashes, IPs, apps) from running. Allow listing takes the opposite approach, permitting only approved items.",
+      "hint": "You are specifically blocking the known-bad items."
+    },
+    {
+      "question": "Q: Which of the following is the BEST reason to implement input validation on a web form?",
+      "options": ["A: To improve page load speed", "B: To prevent injection attacks by rejecting malformed input", "C: To increase database storage", "D: To disable user accounts"],
+      "answer": "B: To prevent injection attacks by rejecting malformed input",
+      "explanation": "Input validation rejects malformed or malicious input, mitigating injection attacks such as SQL injection and XSS before the data reaches backend systems.",
+      "hint": "It defends against injection attacks."
+    },
+    {
+      "question": "Q: An organization performs an assessment to identify and prioritize the potential impact of threats on business processes. What is this called?",
+      "options": ["A: Penetration test", "B: Business Impact Analysis (BIA)", "C: Vulnerability scan", "D: Code review"],
+      "answer": "B: Business Impact Analysis (BIA)",
+      "explanation": "A BIA identifies critical business functions and the impact of their disruption, informing recovery priorities and metrics like RTO and RPO.",
+      "hint": "It determines what matters most to keep the business running."
+    },
+    {
+      "question": "Q: Which of the following is a characteristic of asymmetric encryption?",
+      "options": ["A: It uses a single shared key", "B: It uses a public and private key pair", "C: It is always faster than symmetric encryption", "D: It cannot be used for digital signatures"],
+      "answer": "B: It uses a public and private key pair",
+      "explanation": "Asymmetric encryption (e.g., RSA, ECC) uses mathematically related public and private keys. Data encrypted with one key is decrypted with the other, enabling secure key exchange and signatures.",
+      "hint": "It relies on a mathematically linked key pair."
+    },
+    {
+      "question": "Q: A company enforces a policy requiring employees to take at least one week of continuous leave each year to detect fraud. What is this control called?",
+      "options": ["A: Job rotation", "B: Mandatory vacation", "C: Least privilege", "D: Dual control"],
+      "answer": "B: Mandatory vacation",
+      "explanation": "Mandatory vacation forces employees away from their duties so that irregularities or fraud may surface while others cover their responsibilities.",
+      "hint": "Forced time off can expose hidden misconduct."
+    },
+    {
+      "question": "Q: Which of the following is the MOST effective defense against a brute-force password attack?",
+      "options": ["A: Disabling account lockout", "B: Account lockout policies and MFA", "C: Using shorter passwords", "D: Sharing accounts"],
+      "answer": "B: Account lockout policies and MFA",
+      "explanation": "Account lockout after failed attempts slows brute-forcing, and MFA ensures a guessed password alone is insufficient to gain access.",
+      "hint": "Lock accounts after failures and require a second factor."
+    },
+    {
+      "question": "Q: What is the purpose of a Certificate Revocation List (CRL)?",
+      "options": ["A: To list all valid certificates", "B: To publish certificates that are no longer trusted before their expiration", "C: To generate new key pairs", "D: To encrypt web traffic"],
+      "answer": "B: To publish certificates that are no longer trusted before their expiration",
+      "explanation": "A CRL lists certificates revoked by the CA before their scheduled expiration. OCSP provides a real-time alternative for checking certificate status.",
+      "hint": "It identifies certificates that should no longer be trusted."
+    },
+    {
+      "question": "Q: A security engineer configures a system to fail into a secure, locked state during a malfunction. This design principle is known as which of the following?",
+      "options": ["A: Fail-open", "B: Fail-closed (fail-secure)", "C: Fault tolerance", "D: Load balancing"],
+      "answer": "B: Fail-closed (fail-secure)",
+      "explanation": "Fail-closed (fail-secure) means that on failure the system denies access to protect security. Fail-open prioritizes availability by allowing access when a control fails.",
+      "hint": "On failure, it locks down rather than opening up."
+    },
+    {
+      "question": "Q: Which of the following attacks exploits the trust a website has in a user's authenticated session by forcing unwanted actions?",
+      "options": ["A: Cross-Site Request Forgery (CSRF)", "B: SQL injection", "C: DNS poisoning", "D: ARP spoofing"],
+      "answer": "A: Cross-Site Request Forgery (CSRF)",
+      "explanation": "CSRF tricks an authenticated user's browser into submitting unwanted requests to a trusted site. Anti-CSRF tokens and same-site cookies mitigate it.",
+      "hint": "It abuses the user's already-authenticated session."
+    },
+    {
+      "question": "Q: Which of the following BEST describes the role of an Acceptable Use Policy (AUP)?",
+      "options": ["A: It defines acceptable ways employees may use organizational resources", "B: It specifies the network's IP addressing scheme", "C: It lists all installed software versions", "D: It replaces the incident response plan"],
+      "answer": "A: It defines acceptable ways employees may use organizational resources",
+      "explanation": "An AUP sets rules for how employees may use company systems, networks, and data, and the consequences of misuse.",
+      "hint": "It governs how staff may use company resources."
+    },
+    {
+      "question": "Q: Which of the following is a PRIMARY security concern with shadow IT?",
+      "options": ["A: It always improves performance", "B: Unapproved systems bypass security controls and create unmanaged risk", "C: It reduces the attack surface", "D: It is always encrypted"],
+      "answer": "B: Unapproved systems bypass security controls and create unmanaged risk",
+      "explanation": "Shadow IT refers to unsanctioned hardware, software, or services that operate outside IT oversight, evading security controls and introducing unmanaged vulnerabilities.",
+      "hint": "Unsanctioned tech escapes IT oversight."
+    },
+    {
+      "question": "Q: A company deploys sensors and agents to detect, investigate, and respond to threats on endpoints. Which solution is this?",
+      "options": ["A: EDR", "B: DLP", "C: SIEM", "D: WAF"],
+      "answer": "A: EDR",
+      "explanation": "Endpoint Detection and Response (EDR) continuously monitors endpoints for suspicious behavior, enabling investigation and automated response to threats.",
+      "hint": "It focuses on detection and response at the endpoint."
+    },
+    {
+      "question": "Q: Which of the following describes the concept of risk transference?",
+      "options": ["A: Eliminating the risky activity entirely", "B: Shifting the financial impact of risk to a third party, such as through insurance", "C: Accepting the risk without action", "D: Implementing controls to reduce the risk"],
+      "answer": "B: Shifting the financial impact of risk to a third party, such as through insurance",
+      "explanation": "Risk transference moves the impact of a risk to another party, commonly via insurance or outsourcing. Other strategies include avoidance, mitigation, and acceptance.",
+      "hint": "Insurance is the classic example."
+    },
+    {
+      "question": "Q: Which of the following is the BEST way to protect data at rest on a stolen laptop?",
+      "options": ["A: A strong Wi-Fi password", "B: Full disk encryption", "C: A screen saver", "D: Antivirus software"],
+      "answer": "B: Full disk encryption",
+      "explanation": "Full disk encryption (e.g., BitLocker) renders data unreadable without the decryption key, protecting information if the device is lost or stolen.",
+      "hint": "Encrypt the entire drive so a thief can't read it."
+    },
+    {
+      "question": "Q: An attacker uses a list of common passwords against many accounts, trying one password across all accounts to avoid lockouts. What is this attack?",
+      "options": ["A: Password spraying", "B: Rainbow table attack", "C: Keylogging", "D: Pass-the-hash"],
+      "answer": "A: Password spraying",
+      "explanation": "Password spraying tries a few common passwords across many accounts, avoiding lockout thresholds that trigger from repeated attempts on one account.",
+      "hint": "One password tried across many accounts to avoid lockout."
+    },
+    {
+      "question": "Q: Which of the following provides real-time validation of a certificate's revocation status?",
+      "options": ["A: CRL", "B: OCSP", "C: CSR", "D: PKCS#12"],
+      "answer": "B: OCSP",
+      "explanation": "The Online Certificate Status Protocol (OCSP) allows a client to query the current status of a certificate in real time, avoiding the need to download an entire CRL.",
+      "hint": "It queries certificate status on demand."
+    },
+    {
+      "question": "Q: A security policy specifies how long different types of data must be kept before secure disposal. This is known as which of the following?",
+      "options": ["A: Data retention policy", "B: Acceptable use policy", "C: Password policy", "D: Change management policy"],
+      "answer": "A: Data retention policy",
+      "explanation": "A data retention policy defines how long data is stored to meet legal, regulatory, and business needs, and when it should be securely destroyed.",
+      "hint": "It defines how long to keep data before disposal."
+    },
+    {
+      "question": "Q: Which of the following is an indicator of compromise (IoC)?",
+      "options": ["A: A scheduled maintenance window", "B: Unusual outbound traffic to an unfamiliar external IP", "C: A routine password change", "D: A successful software license renewal"],
+      "answer": "B: Unusual outbound traffic to an unfamiliar external IP",
+      "explanation": "Indicators of compromise are forensic artifacts (such as anomalous traffic, unexpected file changes, or unusual logins) that suggest a system may be breached.",
+      "hint": "It is evidence that a breach may have occurred."
+    },
+    {
+      "question": "Q: Which mobile deployment model allows employees to use their personal devices for work?",
+      "options": ["A: COPE", "B: BYOD", "C: CYOD", "D: VDI"],
+      "answer": "B: BYOD",
+      "explanation": "Bring Your Own Device (BYOD) lets employees use personal devices for work, raising challenges around data separation and control. COPE and CYOD involve company-provided devices.",
+      "hint": "Employees bring their own personal hardware."
+    },
+    {
+      "question": "Q: What is the FIRST phase of the incident response process according to common frameworks?",
+      "options": ["A: Containment", "B: Preparation", "C: Eradication", "D: Recovery"],
+      "answer": "B: Preparation",
+      "explanation": "The incident response lifecycle begins with Preparation (policies, tools, training), followed by Detection/Identification, Containment, Eradication, Recovery, and Lessons Learned.",
+      "hint": "Get ready before an incident ever occurs."
+    },
+    {
+      "question": "Q: Which of the following BEST describes 'security through obscurity'?",
+      "options": ["A: A strong, layered defense strategy", "B: Relying on secrecy of design or implementation as the main security measure", "C: Using multifactor authentication", "D: Encrypting all data at rest"],
+      "answer": "B: Relying on secrecy of design or implementation as the main security measure",
+      "explanation": "Security through obscurity depends on hiding details rather than robust controls. It is weak as a primary defense but can add a minor layer alongside real controls.",
+      "hint": "Hiding how something works, hoping no one figures it out."
+    },
+    {
+      "question": "Q: An organization requires vendors to sign an agreement protecting sensitive information from disclosure. Which document is this?",
+      "options": ["A: SLA", "B: NDA", "C: MOU", "D: SOW"],
+      "answer": "B: NDA",
+      "explanation": "A Non-Disclosure Agreement (NDA) legally binds parties to protect confidential information from unauthorized disclosure.",
+      "hint": "It legally protects confidential information."
+    },
+    {
+      "question": "Q: Which of the following technologies inspects and filters HTTP/HTTPS traffic to protect web applications from attacks like SQL injection and XSS?",
+      "options": ["A: Web Application Firewall (WAF)", "B: Network switch", "C: DHCP server", "D: Load balancer"],
+      "answer": "A: Web Application Firewall (WAF)",
+      "explanation": "A WAF inspects application-layer (HTTP/HTTPS) traffic and blocks web-specific attacks such as SQL injection and cross-site scripting.",
+      "hint": "It specifically protects web applications at layer 7."
+    },
+    {
+      "question": "Q: Which of the following BEST describes the term 'attack surface'?",
+      "options": ["A: The total number of employees", "B: The sum of all points where an attacker could attempt entry or extraction", "C: The physical size of the data center", "D: The number of firewalls deployed"],
+      "answer": "B: The sum of all points where an attacker could attempt entry or extraction",
+      "explanation": "The attack surface includes all exposed entry points — services, ports, interfaces, and accounts — that an attacker could target. Hardening reduces it.",
+      "hint": "All the ways in and out that an attacker could exploit."
+    },
+    {
+      "question": "Q: A security analyst uses a tool to identify missing patches and misconfigurations without exploiting them. Which activity is this?",
+      "options": ["A: Penetration testing", "B: Vulnerability scanning", "C: Social engineering", "D: Red teaming"],
+      "answer": "B: Vulnerability scanning",
+      "explanation": "Vulnerability scanning identifies known weaknesses, missing patches, and misconfigurations without actively exploiting them. Penetration testing goes further by exploiting findings.",
+      "hint": "It finds weaknesses but does not exploit them."
+    },
+    {
+      "question": "Q: Which of the following is a benefit of using Infrastructure as Code (IaC)?",
+      "options": ["A: It eliminates the need for any security", "B: It provides consistent, repeatable, version-controlled infrastructure deployments", "C: It requires manual configuration each time", "D: It prevents all misconfigurations automatically"],
+      "answer": "B: It provides consistent, repeatable, version-controlled infrastructure deployments",
+      "explanation": "IaC defines infrastructure in code, enabling consistent, automated, version-controlled deployments and reducing configuration drift and manual error.",
+      "hint": "Infrastructure defined in version-controlled files."
+    },
+    {
+      "question": "Q: An organization wants to ensure only approved applications can run on its endpoints. Which control should it implement?",
+      "options": ["A: Application allow listing", "B: Open all executables", "C: Disable antivirus", "D: Remove logging"],
+      "answer": "A: Application allow listing",
+      "explanation": "Application allow listing (whitelisting) permits only explicitly approved applications to run, blocking unknown or unauthorized software by default.",
+      "hint": "Only pre-approved software is permitted to run."
+    },
+    {
+      "question": "Q: Which of the following describes the practice of collecting and analyzing publicly available information about a target?",
+      "options": ["A: OSINT (Open-Source Intelligence)", "B: Encryption", "C: Tokenization", "D: Sandboxing"],
+      "answer": "A: OSINT (Open-Source Intelligence)",
+      "explanation": "OSINT gathers intelligence from publicly available sources such as websites, social media, and public records, often used during reconnaissance.",
+      "hint": "Intelligence gathered from public sources."
+    },
+    {
+      "question": "Q: Which of the following would BEST detect unauthorized changes to critical system files?",
+      "options": ["A: File Integrity Monitoring (FIM)", "B: A load balancer", "C: A DHCP server", "D: A VPN"],
+      "answer": "A: File Integrity Monitoring (FIM)",
+      "explanation": "File Integrity Monitoring baselines critical files and alerts on unauthorized modifications, helping detect tampering, malware, or misconfiguration.",
+      "hint": "It watches for changes to important files."
+    },
+    {
+      "question": "Q: A user's credentials are stolen via a fake login page that mimics the real site. Which attack is this?",
+      "options": ["A: Credential harvesting via phishing", "B: Buffer overflow", "C: Denial of service", "D: Privilege escalation"],
+      "answer": "A: Credential harvesting via phishing",
+      "explanation": "A fake login page designed to capture credentials is a credential-harvesting phishing attack. User training and MFA reduce its effectiveness.",
+      "hint": "A counterfeit login page steals what you type."
+    },
+    {
+      "question": "Q: Which of the following is the MOST appropriate control to reduce tailgating into a secure facility?",
+      "options": ["A: A firewall", "B: An access control vestibule (mantrap)", "C: Antivirus software", "D: A VPN"],
+      "answer": "B: An access control vestibule (mantrap)",
+      "explanation": "An access control vestibule (mantrap) allows only one person through at a time, preventing an unauthorized person from following an authorized one (tailgating).",
+      "hint": "A two-door entry that admits one person at a time."
+    },
+    {
+      "question": "Q: Which of the following describes a logic bomb?",
+      "options": ["A: Malware that self-replicates across networks", "B: Malicious code that executes when specific conditions are met", "C: A tool for encrypting disks", "D: A type of firewall rule"],
+      "answer": "B: Malicious code that executes when specific conditions are met",
+      "explanation": "A logic bomb is dormant malicious code that triggers when a condition is met (a date, event, or action), such as an employee's account being deleted.",
+      "hint": "It lies dormant until a trigger condition is met."
+    },
+    {
+      "question": "Q: Which of the following is the PRIMARY purpose of network access control (NAC)?",
+      "options": ["A: To encrypt all files at rest", "B: To enforce policy and assess device posture before granting network access", "C: To provide DNS resolution", "D: To back up user data"],
+      "answer": "B: To enforce policy and assess device posture before granting network access",
+      "explanation": "NAC evaluates a device's compliance (patches, antivirus, configuration) and enforces access policies before permitting it onto the network.",
+      "hint": "It checks a device's health before letting it on the network."
+    },
+    {
+      "question": "Q: An organization uses a formal, repeatable set of security controls published by NIST. Which of the following is an example?",
+      "options": ["A: NIST Cybersecurity Framework (CSF)", "B: The OSI model", "C: The TCP handshake", "D: A subnet mask"],
+      "answer": "A: NIST Cybersecurity Framework (CSF)",
+      "explanation": "The NIST Cybersecurity Framework provides a structured set of functions (Govern, Identify, Protect, Detect, Respond, Recover) to manage cybersecurity risk.",
+      "hint": "A well-known risk-management framework from NIST."
+    },
+    {
+      "question": "Q: Which of the following BEST protects the confidentiality of data transmitted over a public network between two offices?",
+      "options": ["A: A site-to-site VPN", "B: A hub", "C: An unencrypted FTP transfer", "D: A broadcast domain"],
+      "answer": "A: A site-to-site VPN",
+      "explanation": "A site-to-site VPN creates an encrypted tunnel between two networks over the public internet, protecting the confidentiality and integrity of transmitted data.",
+      "hint": "An encrypted tunnel between two locations."
+    },
+    {
+      "question": "Q: A threat actor motivated by political or social causes defaces a company website to spread a message. What type of threat actor is this?",
+      "options": ["A: Hacktivist", "B: Nation-state", "C: Insider threat", "D: Script kiddie"],
+      "answer": "A: Hacktivist",
+      "explanation": "A hacktivist is motivated by political or social causes and often uses attacks like website defacement or DDoS to promote a message.",
+      "hint": "Motivated by a cause, not money."
+    },
+    {
+      "question": "Q: Which of the following is TRUE about a stateful firewall compared to a stateless (packet-filtering) firewall?",
+      "options": ["A: It only inspects individual packets without context", "B: It tracks the state of active connections and makes decisions based on connection context", "C: It cannot block traffic", "D: It operates only at the physical layer"],
+      "answer": "B: It tracks the state of active connections and makes decisions based on connection context",
+      "explanation": "A stateful firewall maintains a connection state table and evaluates packets in the context of established sessions, offering stronger filtering than stateless packet filters.",
+      "hint": "It remembers the context of active connections."
+    },
+    {
+      "question": "Q: Which of the following is the BEST method to securely dispose of a hard drive containing sensitive data before reuse in a low-security context?",
+      "options": ["A: Quick format", "B: Cryptographic erase or degaussing/physical destruction", "C: Deleting files to the recycle bin", "D: Renaming the files"],
+      "answer": "B: Cryptographic erase or degaussing/physical destruction",
+      "explanation": "Cryptographic erase, degaussing, or physical destruction render data unrecoverable. A quick format or deletion leaves data recoverable with forensic tools.",
+      "hint": "Deleting or formatting is not enough."
+    },
+    {
+      "question": "Q: A company wants to allow partners to authenticate to its applications using the partners' own identity provider. Which technology enables this?",
+      "options": ["A: Federation (e.g., SAML)", "B: A local password database", "C: A CAPTCHA", "D: A honeypot"],
+      "answer": "A: Federation (e.g., SAML)",
+      "explanation": "Federation lets users authenticate through their home identity provider and access resources across trust boundaries, commonly using SAML or OIDC for SSO between organizations.",
+      "hint": "It links identity across organizational boundaries."
+    },
+    {
+      "question": "Q: Which of the following describes the security risk known as a race condition (TOCTOU)?",
+      "options": ["A: Running out of network bandwidth", "B: A flaw exploited by acting between the time a resource is checked and the time it is used", "C: A weak password policy", "D: An expired certificate"],
+      "answer": "B: A flaw exploited by acting between the time a resource is checked and the time it is used",
+      "explanation": "A time-of-check to time-of-use (TOCTOU) race condition occurs when the state of a resource changes between validation and use, which an attacker can exploit.",
+      "hint": "The gap between checking and using a resource."
+    },
+    {
+      "question": "Q: Which of the following is the BEST control to ensure employees can recognize and report phishing attempts?",
+      "options": ["A: Security awareness training", "B: Full disk encryption", "C: A stronger firewall", "D: A load balancer"],
+      "answer": "A: Security awareness training",
+      "explanation": "Security awareness training educates users to identify social engineering and phishing, reducing the human-factor risk that technical controls cannot fully address.",
+      "hint": "The best defense against social engineering is educated users."
+    },
+    {
+      "question": "Q: An organization implements a solution that brokers secure access and enforces policy between users and multiple cloud services. What is this called?",
+      "options": ["A: CASB (Cloud Access Security Broker)", "B: DHCP", "C: NTP", "D: RAID"],
+      "answer": "A: CASB (Cloud Access Security Broker)",
+      "explanation": "A CASB sits between users and cloud services to enforce security policies such as visibility, compliance, data security, and threat protection across cloud usage.",
+      "hint": "It sits between users and cloud apps to enforce policy."
+    },
+    {
+      "question": "Q: Which of the following BEST describes elasticity in cloud computing from a security and availability standpoint?",
+      "options": ["A: The ability to automatically scale resources up or down based on demand", "B: The permanent allocation of fixed resources", "C: The encryption of all traffic", "D: The physical destruction of drives"],
+      "answer": "A: The ability to automatically scale resources up or down based on demand",
+      "explanation": "Elasticity allows cloud resources to scale dynamically with demand, supporting availability during spikes and cost efficiency during lulls.",
+      "hint": "Resources grow and shrink automatically with demand."
+    },
+    {
+      "question": "Q: A security team simulates a real-world attack against the organization while a defensive team responds, testing detection and response. What is the attacking team called?",
+      "options": ["A: Blue team", "B: Red team", "C: White team", "D: Green team"],
+      "answer": "B: Red team",
+      "explanation": "The red team simulates adversaries to test defenses, while the blue team defends. The white team oversees the exercise, and purple teaming blends offense and defense collaboration.",
+      "hint": "This team plays the role of the attacker."
+    },
+    {
+      "question": "Q: Which of the following BEST reduces the risk of a single point of failure for a critical server?",
+      "options": ["A: Deploying it on a single power supply", "B: Implementing redundancy and high availability (e.g., clustering, redundant power)", "C: Disabling backups", "D: Reducing the number of network paths"],
+      "answer": "B: Implementing redundancy and high availability (e.g., clustering, redundant power)",
+      "explanation": "Redundancy through clustering, load balancing, redundant power, and multiple network paths eliminates single points of failure and improves availability.",
+      "hint": "Add redundancy so one failure doesn't take everything down."
+    },
+    {
+      "question": "Q: An attacker alters the ARP cache of hosts to redirect traffic through their machine. Which attack is this?",
+      "options": ["A: ARP poisoning (spoofing)", "B: DNS tunneling", "C: SQL injection", "D: Cross-site scripting"],
+      "answer": "A: ARP poisoning (spoofing)",
+      "explanation": "ARP poisoning sends forged ARP messages to associate the attacker's MAC address with a legitimate IP, enabling interception of LAN traffic (an on-path attack).",
+      "hint": "It corrupts the mapping of IP to MAC addresses on a LAN."
+    },
+    {
+      "question": "Q: Which of the following is the PRIMARY purpose of a playbook in security operations?",
+      "options": ["A: To store encryption keys", "B: To provide a documented, repeatable set of steps for responding to a specific type of incident", "C: To assign IP addresses", "D: To generate certificates"],
+      "answer": "B: To provide a documented, repeatable set of steps for responding to a specific type of incident",
+      "explanation": "A playbook defines standardized, repeatable response procedures for specific scenarios, improving consistency and speed, and it can be automated with SOAR.",
+      "hint": "A step-by-step guide for handling an incident type."
+    },
+    {
+      "question": "Q: Which of the following describes the concept of 'data sovereignty'?",
+      "options": ["A: Data is owned by the internet service provider", "B: Data is subject to the laws of the country in which it is stored", "C: Data can never be encrypted", "D: Data must always be public"],
+      "answer": "B: Data is subject to the laws of the country in which it is stored",
+      "explanation": "Data sovereignty means data is governed by the legal jurisdiction where it physically resides, which affects cloud storage location decisions and compliance.",
+      "hint": "The location of storage determines which laws apply."
+    },
+    {
+      "question": "Q: A company automates repetitive security tasks and orchestrates responses across tools using a single platform. Which technology is this?",
+      "options": ["A: SOAR", "B: NAC", "C: VLAN", "D: RAID"],
+      "answer": "A: SOAR",
+      "explanation": "Security Orchestration, Automation, and Response (SOAR) integrates tools and automates workflows and playbooks to speed and standardize incident response.",
+      "hint": "It automates and orchestrates response workflows."
+    },
+    {
+      "question": "Q: Which of the following BEST describes the purpose of key stretching algorithms like PBKDF2 or bcrypt?",
+      "options": ["A: To make password hashing intentionally slower and more resistant to brute force", "B: To compress passwords", "C: To transmit passwords in cleartext", "D: To generate asymmetric key pairs"],
+      "answer": "A: To make password hashing intentionally slower and more resistant to brute force",
+      "explanation": "Key stretching applies many iterations (and salting) to make password hashing computationally expensive, slowing brute-force and dictionary attacks.",
+      "hint": "It deliberately slows down hashing to hinder cracking."
+    },
+    {
+      "question": "Q: An organization discovers an employee is stealing data before resigning. What category of threat actor is this?",
+      "options": ["A: Insider threat", "B: Nation-state actor", "C: Script kiddie", "D: Hacktivist"],
+      "answer": "A: Insider threat",
+      "explanation": "An insider threat originates from someone with authorized access — such as an employee or contractor — who misuses that access, whether maliciously or negligently.",
+      "hint": "The threat comes from someone already trusted inside."
+    },
+    {
+      "question": "Q: Which of the following would provide the STRONGEST assurance of a user's identity during authentication?",
+      "options": ["A: A password alone", "B: A password plus a biometric plus a hardware token", "C: A username alone", "D: A security question"],
+      "answer": "B: A password plus a biometric plus a hardware token",
+      "explanation": "Combining something you know (password), something you are (biometric), and something you have (hardware token) provides strong multifactor authentication with three distinct factors.",
+      "hint": "Combine factors from three different categories."
+    },
+    {
+      "question": "Q: Which of the following is the BEST reason to use jump servers (bastion hosts) for administration?",
+      "options": ["A: To increase attack surface", "B: To provide a single, hardened, monitored point of access for administering sensitive systems", "C: To disable logging", "D: To bypass authentication"],
+      "answer": "B: To provide a single, hardened, monitored point of access for administering sensitive systems",
+      "explanation": "A jump server is a hardened, closely monitored host through which administrators must connect to reach sensitive segments, centralizing and controlling privileged access.",
+      "hint": "A controlled gateway for privileged administrative access."
+    },
+    {
+      "question": "Q: Which of the following describes the purpose of a Statement of Work (SOW)?",
+      "options": ["A: It defines the specific tasks, deliverables, and timeline for a project or engagement", "B: It is a marketing brochure", "C: It replaces an incident response plan", "D: It sets employee vacation schedules"],
+      "answer": "A: It defines the specific tasks, deliverables, and timeline for a project or engagement",
+      "explanation": "A Statement of Work details the scope, deliverables, milestones, and timelines of a specific engagement, often accompanying a master service agreement.",
+      "hint": "It spells out the scope and deliverables of an engagement."
+    },
+    {
+      "question": "Q: A security analyst configures alerts to trigger only when multiple failed logins are followed by a success from a new location. This is an example of which of the following?",
+      "options": ["A: Log correlation", "B: Full disk encryption", "C: Physical security", "D: Load balancing"],
+      "answer": "A: Log correlation",
+      "explanation": "Correlating multiple related events (failed logins plus a successful login from an unusual location) reduces noise and surfaces meaningful, higher-fidelity alerts.",
+      "hint": "Combining multiple events into one meaningful alert."
+    },
+    {
+      "question": "Q: Which of the following BEST describes the difference between authentication and authorization?",
+      "options": ["A: They are the same thing", "B: Authentication verifies identity; authorization determines what the identity can access", "C: Authorization verifies identity; authentication grants access", "D: Both only apply to physical security"],
+      "answer": "B: Authentication verifies identity; authorization determines what the identity can access",
+      "explanation": "Authentication confirms who you are; authorization determines what resources and actions you are permitted. Both are core to the AAA model.",
+      "hint": "One proves who you are; the other grants access rights."
+    },
+    {
+      "question": "Q: An organization wants to detect if a mobile device has been rooted or jailbroken before allowing corporate access. Which solution provides this?",
+      "options": ["A: Mobile Device Management (MDM)", "B: A DHCP server", "C: A VLAN", "D: A CRL"],
+      "answer": "A: Mobile Device Management (MDM)",
+      "explanation": "MDM enforces policy on mobile devices, including detecting rooted/jailbroken status, requiring encryption, and enabling remote wipe before granting corporate access.",
+      "hint": "It centrally manages and enforces policy on mobile devices."
+    },
+    {
+      "question": "Q: Which of the following is a PRIMARY characteristic of the 3-2-1 backup rule?",
+      "options": ["A: Keep 3 copies of data, on 2 different media types, with 1 copy offsite", "B: Keep 1 copy of data on the same server", "C: Encrypt data 3 times", "D: Back up only once a year"],
+      "answer": "A: Keep 3 copies of data, on 2 different media types, with 1 copy offsite",
+      "explanation": "The 3-2-1 rule recommends three copies of data, on two different media types, with one copy stored offsite, improving resilience against loss and disaster.",
+      "hint": "Three copies, two media types, one offsite."
+    },
+    {
+      "question": "Q: Which of the following attacks attempts to exhaust a system's resources by leaving many half-open TCP connections?",
+      "options": ["A: SYN flood", "B: Cross-site scripting", "C: Pass-the-hash", "D: Rainbow table attack"],
+      "answer": "A: SYN flood",
+      "explanation": "A SYN flood sends many TCP SYN requests without completing the handshake, exhausting the target's connection table and denying service to legitimate users.",
+      "hint": "It abuses the TCP three-way handshake."
+    },
+    {
+      "question": "Q: Which of the following BEST describes the purpose of a Governance, Risk, and Compliance (GRC) program?",
+      "options": ["A: To align security activities with business objectives, manage risk, and ensure regulatory compliance", "B: To configure firewall rules only", "C: To generate encryption keys", "D: To provide DNS resolution"],
+      "answer": "A: To align security activities with business objectives, manage risk, and ensure regulatory compliance",
+      "explanation": "GRC integrates governance (direction and oversight), risk management, and compliance to ensure security supports business goals and meets legal/regulatory obligations.",
+      "hint": "It ties together direction, risk, and regulation."
+    },
+    {
+      "question": "Q: A company assigns a quantitative value representing the expected yearly cost of a specific risk. Which metric is this?",
+      "options": ["A: ALE (Annualized Loss Expectancy)", "B: RTO", "C: RPO", "D: MTBF"],
+      "answer": "A: ALE (Annualized Loss Expectancy)",
+      "explanation": "Annualized Loss Expectancy (ALE) equals Single Loss Expectancy (SLE) multiplied by the Annualized Rate of Occurrence (ARO), estimating the yearly cost of a risk.",
+      "hint": "SLE multiplied by ARO gives you this yearly figure."
+    },
+    {
+      "question": "Q: Which of the following controls would BEST prevent unauthorized devices from connecting to switch ports in an office?",
+      "options": ["A: Port security with MAC filtering / 802.1X", "B: A longer DHCP lease", "C: Disabling encryption", "D: A public guest SSID"],
+      "answer": "A: Port security with MAC filtering / 802.1X",
+      "explanation": "Port security limits which MAC addresses may use a switch port, and 802.1X requires authentication before a device gains network access, preventing rogue connections.",
+      "hint": "Authenticate or restrict devices at the switch port."
+    },
+    {
+      "question": "Q: Which of the following is the BEST description of steganography?",
+      "options": ["A: Encrypting data with a public key", "B: Concealing data within another file, such as hiding a message inside an image", "C: Hashing a password", "D: Load balancing traffic"],
+      "answer": "B: Concealing data within another file, such as hiding a message inside an image",
+      "explanation": "Steganography hides the existence of a message by embedding it within another medium (image, audio, video), unlike encryption which hides the content but not its presence.",
+      "hint": "It hides that a message even exists."
+    },
+    {
+      "question": "Q: A vulnerability scan reports a flaw that does not actually exist on the system. What is this result called?",
+      "options": ["A: False negative", "B: False positive", "C: True positive", "D: True negative"],
+      "answer": "B: False positive",
+      "explanation": "A false positive is a reported vulnerability or alert that is not actually present or valid. Validating scan results reduces wasted remediation effort.",
+      "hint": "The scanner cried wolf when there was none."
+    },
+    {
+      "question": "Q: Which of the following is the MOST important first step when responding to a confirmed malware outbreak on a workstation?",
+      "options": ["A: Reimage the machine immediately without analysis", "B: Contain the incident by isolating the affected system from the network", "C: Ignore it until end of day", "D: Email all employees the malware sample"],
+      "answer": "B: Contain the incident by isolating the affected system from the network",
+      "explanation": "Containment (e.g., isolating the host) limits the spread and damage of an incident before eradication and recovery, while preserving evidence for analysis.",
+      "hint": "Stop the spread before cleaning up."
+    },
+    {
+      "question": "Q: Which of the following describes the purpose of a digital certificate's Subject Alternative Name (SAN) field?",
+      "options": ["A: To store the private key", "B: To allow a single certificate to secure multiple hostnames or domains", "C: To revoke the certificate", "D: To encrypt the CRL"],
+      "answer": "B: To allow a single certificate to secure multiple hostnames or domains",
+      "explanation": "The Subject Alternative Name field lets one certificate cover multiple domain names or hostnames, which is common for services hosting several sites.",
+      "hint": "One certificate covering several hostnames."
+    },
+    {
+      "question": "Q: Which of the following is a key advantage of using multifactor authentication even if a password is compromised?",
+      "options": ["A: The attacker still needs the additional factor to gain access", "B: The password becomes unencrypted", "C: The account is automatically deleted", "D: It disables all logging"],
+      "answer": "A: The attacker still needs the additional factor to gain access",
+      "explanation": "With MFA, a stolen password alone is insufficient because the attacker must also provide the second factor, significantly reducing the risk of account takeover.",
+      "hint": "A stolen password alone is not enough."
+    },
+    {
+      "question": "Q: An organization uses a framework that maps adversary tactics and techniques across the attack lifecycle to improve detection. Which framework is this?",
+      "options": ["A: MITRE ATT&CK", "B: The OSI model", "C: RAID levels", "D: The TCP handshake"],
+      "answer": "A: MITRE ATT&CK",
+      "explanation": "MITRE ATT&CK is a knowledge base of adversary tactics, techniques, and procedures (TTPs) that helps defenders map, detect, and respond to real-world attacker behavior.",
+      "hint": "A knowledge base of adversary tactics and techniques."
+    },
+    {
+      "question": "Q: Which of the following BEST describes the security benefit of network micro-segmentation?",
+      "options": ["A: It merges all systems into one broadcast domain", "B: It isolates workloads at a granular level to limit lateral movement", "C: It disables all firewalls", "D: It removes the need for authentication"],
+      "answer": "B: It isolates workloads at a granular level to limit lateral movement",
+      "explanation": "Micro-segmentation applies fine-grained policies around individual workloads, strongly limiting an attacker's ability to move laterally after a breach — a key Zero Trust enabler.",
+      "hint": "Very fine-grained isolation to stop lateral movement."
+    },
+    {
+      "question": "Q: Which of the following is the BEST practice when handling digital evidence to maintain its integrity in court?",
+      "options": ["A: Share it freely without tracking", "B: Maintain a documented chain of custody", "C: Modify timestamps to be consistent", "D: Store it on the compromised host"],
+      "answer": "B: Maintain a documented chain of custody",
+      "explanation": "A chain of custody documents everyone who handled evidence and when, preserving its integrity and admissibility. Hashing copies further proves the evidence is unaltered.",
+      "hint": "Track who handled the evidence and when."
+    },
+    {
+      "question": "Q: A company wants to ensure that logs cannot be altered by an attacker who compromises a server. Which control BEST supports this?",
+      "options": ["A: Storing logs only on the local server", "B: Forwarding logs to a secure, centralized, write-once log server", "C: Deleting logs daily", "D: Disabling logging on critical systems"],
+      "answer": "B: Forwarding logs to a secure, centralized, write-once log server",
+      "explanation": "Sending logs to a hardened, centralized, tamper-resistant (write-once/append-only) log server ensures that even if an endpoint is compromised, the evidence remains intact.",
+      "hint": "Get the logs off the box and make them tamper-resistant."
+    },
+    {
+      "question": "Q: Which of the following describes the concept of 'implicit deny'?",
+      "options": ["A: All traffic is allowed unless explicitly blocked", "B: All traffic is blocked unless explicitly permitted", "C: All users are administrators", "D: No logging is performed"],
+      "answer": "B: All traffic is blocked unless explicitly permitted",
+      "explanation": "Implicit deny is a default-deny posture: anything not explicitly allowed is denied. It is a best practice for firewall and access control rule design.",
+      "hint": "Default to blocking; permit only what is listed."
+    }
+  ]
+}
