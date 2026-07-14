@@ -8,6 +8,25 @@
       "answer": "A: Paris",
       "explanation": "The capital of France is Paris, which is known for its art, fashion, and culture.",
       "hint": "It's also called the 'City of Light'."
+    },
+    {
+      "question": "Q: Which continent is the Sahara Desert located in?",
+      "options": ["A: Asia", "B: Africa", "C: Australia", "D: South America"],
+      "answer": "B: Africa",
+      "explanation": "The Sahara Desert is the largest hot desert in the world and is located in North Africa.",
+      "hint": "It's known for its vast sand dunes and extreme temperatures."
+    },
+    {
+      "question": "Q: What is the longest river in the world?",
+      "options": [
+        "A: Amazon River",
+        "B: Nile River",
+        "C: Yangtze River",
+        "D: Mississippi River"
+      ],
+      "answer": "B: Nile River",
+      "explanation": "The Nile River, located in northeastern Africa, is traditionally considered the longest river in the world.",
+      "hint": "It flows through countries like Egypt and Sudan."
     }
   ]
 }
