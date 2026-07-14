@@ -1,16 +1,27 @@
 [project]
-name = "uv-cli-template"
+name = "cli-prep"
 version = "0.1.0"
-description = "Add your description here"
+description = "A terminal UI to practise multiple-choice quizzes."
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = ["typer>=0.16.1"]
+dependencies = ["typer>=0.16.1", "textual>=0.80"]
 
 [project.scripts]
-uv-cli-template = "package.main:app"
+prep = "package.main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/package"]
 
 [dependency-groups]
-dev = ["pytest", "ruff", "pyrefly", "pre-commit"]
+dev = ["pytest", "pytest-asyncio", "ruff", "pyrefly", "pre-commit"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["src"]
 
 
 [tool.pyrefly]
